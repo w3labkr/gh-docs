@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <meta name="viewport" content="width=1280">
+
+  <!--
+    Using dns-prefetch
+
+    DNS-prefetch is an attempt to resolve domain names before resources get requested.
+    This could be a file loaded later or link target a user tries to follow.
+
+    https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
+  -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://ajax.googleapis.com" crossorigin>
+  <link rel="dns-prefetch" href="https://ajax.googleapis.com">
+
+  <!--
+    Bootstrap Icons
+    Official open source SVG icon library for Bootstrap.
+
+    https://icons.getbootstrap.com/
+  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+  <title>gh-docs</title>
+
+  <style>
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: 100;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+a {
+  text-decoration: none;
+}
+a:focus,
+a:active,
+a:hover {
+  text-decoration: underline;
+}
+.site {
+  width: 100%;
+  height: 100%;
+}
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0 15px;
+  border-bottom: 1px solid #dddddd;
+}
+.site-title {
+  font-size: 18px;
+}
+.site-content {
+  height: calc(100% - 50px);
+}
+.site-content:after {
+  display: block;
+  clear: both;
+  content: '';
+}
+.site-sidebar {
+  float: left;
+  height: 100%;
+  padding: 15px;
+  height: 100%;
+  overflow-y: scroll;
+}
+.site-sidebar .sidebar-list {
+  word-break: break-all;
+  padding-left: 0;
+  list-style: none;
+}
+.site-sidebar .sidebar-list li.sidebar-text {
+  margin-top: 10px;
+}
+.site-sidebar .sidebar-list li.sidebar-text:first-child {
+  margin-top: 0;
+}
+.site-sidebar .sidebar-list li.sidebar-item.active a {
+  color: rgb(255 0 0);
+}
+.site-sidebar.sidebar-1 {
+  width: 198px;
+}
+.site-sidebar.sidebar-2 {
+  width: 200px;
+  border-left: 1px solid #dddddd;
+}
+.site-main {
+  float: left;
+  width: calc(100% - 402px);
+  height: 100%;
+  border-left: 1px solid #dddddd;
+}
+  </style>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178473923-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-178473923-2');
+  </script>
+
+</head>
+
+<body>
+  <div id="page" class="site">
+
+    <header class="site-header">
+      <h1 class="site-title">W3LabKr</h1>
+      <p class="site-description">gh-docs</p>
+      <a href="https://github.com/w3labkr/gh-docs" target="_blank">
+        <i class="bi bi-box-arrow-up-right"></i> Github
+      </a>
+    </header>
+
+    <div id="page-content" class="site-content">
+      <aside id="secondary" class="site-sidebar sidebar-1">
+        <ul class="sidebar-list">
+          <li class="sidebar-item active"><a href="javascript:;" data-target-id="ex1">ex1</a></li>
+          <li class="sidebar-item"><a href="javascript:;" data-target-id="ex2">ex2</a></li>
+        </ul>
+      </aside>
+
+      <aside id="tertiary" class="site-sidebar sidebar-2">
+        <ul id="ex1" class="sidebar-list active">
+          <li class="sidebar-text"></li>
+          <li class="sidebar-item active"><a href="ex1/ex1-1.html">ex1-1</a></li>
+          <li class="sidebar-item"><a href="ex1/ex1-2.html">ex1-2</a></li>
+        </ul>
+        <ul id="ex2" class="sidebar-list" style="display:none;">
+          <li class="sidebar-text">subtitle1</li>
+          <li class="sidebar-item"><a href="ex2/ex2-1.html">ex2-1</a></li>
+          <li class="sidebar-item"><a href="ex2/ex2-2.html">ex2-2</a></li>
+          <li class="sidebar-text">subtitle2</li>
+          <li class="sidebar-item"><a href="ex2/ex2-1.html">ex2-1</a></li>
+          <li class="sidebar-item"><a href="ex2/ex2-2.html">ex2-2</a></li>
+        </ul>
+      </aside>
+
+      <main id="primary" class="site-main">
+        <iframe id="iframe" src="ex1/ex1-1.html" frameborder="0" style="width:100%;height:100%;"></iframe>
+      </main>
+    </div>
+
+    <footer class="site-footer"></footer>
+  </div><!-- #site -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+  <script>
+  var WebFontConfig = {
+    google: {
+      families: ['Noto Sans KR:100'],
+      text: ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
+    },
+    timeout: 2000 // Set the timeout to two seconds
+  };
+  WebFont.load(WebFontConfig);
+  </script>
+
+  <script>
+    function setActiveClass(target) {
+      var parent = target.parentNode;
+      var siblings = [].slice.call(parent.parentNode.children).filter(function (sibling) {
+        return sibling !== target;
+      });
+
+      siblings.forEach(function(sibling) {
+        sibling.classList.remove('active');
+      });
+
+      parent.classList.add('active');
+    }
+
+    function setTertiary(element) {
+      var target = document.getElementById(element.dataset.targetId);
+      var siblings = [].slice.call(target.parentNode.children).filter(function (sibling) {
+        return sibling !== target;
+      });
+
+      siblings.forEach(function(sibling) {
+        sibling.style.display = 'none';
+      });
+
+      target.style.display = 'block';
+    }
+
+    function setTertiaryAnchor(element) {
+      var target = document.getElementById(element.dataset.targetId);
+      var firstAnchor = target.querySelector('a');
+
+      firstAnchor.dispatchEvent(new Event('click'));
+    }
+
+    function setPrimary(target) {
+      var iframe = document.getElementById('iframe');
+      var origin = '';
+      var href = target.getAttribute('href');
+
+      iframe.src = origin.concat(href);
+    }
+
+    var secondaryAnchors = document.querySelectorAll('#secondary a');
+    secondaryAnchors.forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        setActiveClass(this);
+        setTertiary(this);
+        setTertiaryAnchor(this);
+
+        return false;
+      });
+    });
+
+    var tertiaryAnchors = document.querySelectorAll('#tertiary a');
+    tertiaryAnchors.forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        setActiveClass(this);
+        setPrimary(this);
+
+        return false;
+      });
+    });
+  </script>
+</body>
+
+</html>
