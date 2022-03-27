@@ -40,11 +40,6 @@
   font-weight: 100;
   font-family: 'Noto Sans KR', sans-serif;
 }
-html,
-body {
-  width: 100%;
-  height: 100%;
-}
 a {
   text-decoration: none;
 }
@@ -54,9 +49,8 @@ a:hover {
   text-decoration: underline;
 }
 .site {
-  width: 100%;
-  height: 100%;
-  min-width: 1024px;
+  width: 100vw;
+  height: 100vh;
 }
 .site-header {
   display: flex;
@@ -79,7 +73,6 @@ a:hover {
 }
 .site-sidebar {
   float: left;
-  height: 100%;
   height: 100%;
   overflow-y: scroll;
 }
@@ -206,11 +199,17 @@ a:hover {
   -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/gsap.min.js"></script>
   <script>
-    var _iframe = document.getElementById('iframe');
-    var _progress = gsap.timeline({
+    var _progressStart = gsap.timeline({
       paused: true,
       repeat: -1,
       repeatDelay: 1,
+      defaults: {
+        duration: 1,
+        ease: "power2.inOut"
+      }
+    });
+    var _progressComplete = gsap.timeline({
+      paused: true,
       defaults: {
         duration: 1,
         ease: "power2.inOut"
@@ -224,20 +223,16 @@ a:hover {
     function sidebarHandler() {
       var anchors = document.querySelectorAll('#secondary a, #tertiary a');
       anchors.forEach(function(anchor) {
+        if (!!anchor.target && anchor.target !== '_self') {
+          return;
+        }
         anchor.addEventListener('click', function(e) {
-          if (this.target === '_blank') {
-            // ...
-          } else {
-            e.preventDefault();
-          }
+          e.preventDefault();
 
           setActiveClass(this);
 
-          if (!!this.hash) {
-            setTertiary(this);
-          } else {
-            setIframe(this);
-          }
+          !!this.hash && setTertiary(this);
+          !this.hash && setIframe(this);
 
           return false;
         });
@@ -274,13 +269,27 @@ a:hover {
     }
 
     function setIframe(target) {
-      _progress.play();
-      _iframe.src = target.getAttribute('href');
+      _progressStart.timeScale(2).play();
+
+      var iframe = document.getElementById('iframe');
+      var scrolling = null;
+
+      if (target.dataset.scrolling) {
+        scrolling = target.dataset.scrolling;
+      } else if (iframe.dataset.scrolling){
+        scrolling = iframe.dataset.scrolling;
+      }
+
+      iframe.scrolling = scrolling;
+      iframe.src = target.getAttribute('href');
     }
 
     function iframeHandler() {
-      _iframe.addEventListener('load', function() {
-        _progress.tweenFromTo(0, 1);
+      var iframe = document.getElementById('iframe');
+      iframe.addEventListener('load', function() {
+        _progressStart.timeScale(2).tweenFromTo(0, 1, { onComplete: function() {
+          _progressComplete.timeScale(2).tweenFromTo(0, 1);
+        }});
 
         var body = this.contentWindow.document.body;
         this.width = body.scrollWidth;
@@ -303,11 +312,13 @@ a:hover {
       span.style.left = '0';
       span.style.width = '0';
       span.style.height = '100%';
-      span.style.backgroundColor = '#222222';
+      span.style.backgroundColor = '#ba2d0b';
+      span.style.backgroundImage = 'linear-gradient(319deg, #ba2d0b 0%, #fe7f2d 37%, #ffbf46 100%)';
 
       div.appendChild(span);
 
-      _progress.fromTo(span, { width: '0' }, { width: '100%' });
+      _progressStart.fromTo(span, { left: 0, width: 0 }, { left: 0, width: '100%' });
+      _progressComplete.fromTo(span, { left: 0, width: '100%' }, { left: '200%', width: 0 });
     }
   </script>
 </body>
