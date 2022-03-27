@@ -4,12 +4,281 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <meta name="viewport" content="width=1024">
+
+  <!--
+  DNS-prefetch is an attempt to resolve domain names before resources get requested.
+  This could be a file loaded later or link target a user tries to follow.
+
+  https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
+  -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://ajax.googleapis.com" crossorigin>
+  <link rel="dns-prefetch" href="https://ajax.googleapis.com">
+
+  <!--
+  A modern alternative to CSS resets
+
+  https://necolas.github.io/normalize.css/
+  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
+
+  <!--
+  Official open source SVG icon library for Bootstrap.
+
+  https://icons.getbootstrap.com/
+  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+  <title>gh-docs</title>
+
+  <style>
+* {
+  box-sizing: border-box;
+  font-weight: 100;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+a {
+  text-decoration: none;
+}
+a:focus,
+a:active,
+a:hover {
+  text-decoration: underline;
+}
+.site {
+  width: 100vw;
+  height: 100vh;
+}
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 15px;
+  border-bottom: 1px solid #dddddd;
+}
+.site-title {
+  font-size: 18px;
+}
+.site-content {
+  height: calc(100% - 60px);
+}
+.site-content:after {
+  display: block;
+  clear: both;
+  content: '';
+}
+.site-sidebar {
+  float: left;
+  height: 100%;
+  overflow-y: scroll;
+}
+.site-sidebar.sidebar-1 {
+  width: 200px;
+  padding: 15px;
+}
+.site-main {
+  float: left;
+  width: calc(100% - 200px);
+  height: 100%;
+  border-left: 1px solid #dddddd;
+}
+.site-sidebar .sidebar-list {
+  word-break: break-all;
+  margin-top:0;
+  margin-bottom:0;
+  padding-left: 15px;
+}
+.site-sidebar .sidebar-list li.sidebar-text {
+  margin-top: 15px;
+  margin-left: -15px;
+  list-style-type: none;
+}
+.site-sidebar .sidebar-list li.sidebar-item {
+  margin-top: 10px;
+}
+.site-sidebar .sidebar-list li:first-child {
+  margin-top: 0;
+}
+.site-sidebar .sidebar-list li.sidebar-item.active a {
+  color: rgb(255 0 0);
+}
+  </style>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178473923-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-178473923-2');
+  </script>
+
 </head>
 
 <body>
+  <div id="page" class="site">
 
+    <header id="page-header" class="site-header">
+      <h1 class="site-title">W3LabKr</h1>
+      <nav id="page-nav" class="site-nav">
+        <a href="https://github.com/w3labkr/gh-docs" target="_blank">
+          <i class="bi bi-box-arrow-up-right"></i> Github
+        </a>
+      </nav>
+    </header>
+
+    <div id="page-content" class="site-content">
+      <aside id="secondary" class="site-sidebar sidebar-1">
+        <ul class="sidebar-list">
+          <li class="sidebar-item active"><a href="content.html" data-scrolling="yes">content</a></li>
+          <li class="sidebar-item"><a href="sidebar-content.html">sidebar-content</a></li>
+          <li class="sidebar-item"><a href="sidebar-sidebar-content.html">sidebar-sidebar-content</a></li>
+        </ul>
+      </aside>
+      <main id="primary" class="site-main">
+        <div id="progress-bar"></div>
+        <iframe id="iframe" src="inc/ex1.html" frameborder="0" scrolling="yes" data-scrolling="no" style="width:100%;height:100%;"></iframe>
+      </main>
+    </div>
+
+    <footer class="site-footer"></footer>
+  </div><!-- #site -->
+
+  <!--
+  Web Font Loader gives you added control when using linked fonts via @font-face.
+
+  https://github.com/typekit/webfontloader
+  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+  <script>
+  var WebFontConfig = {
+    google: {
+      families: ['Noto Sans KR:100'],
+      text: ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
+    }
+  };
+  WebFont.load(WebFontConfig);
+  </script>
+
+  <!--
+  GreenSock's GSAP JavaScript animation library (including Draggable).
+
+  https://github.com/greensock/GSAP
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/gsap.min.js"></script>
+  <script>
+    var _progressStart = gsap.timeline({
+      paused: true,
+      repeat: -1,
+      repeatDelay: 1,
+      defaults: {
+        duration: 1,
+        ease: "power2.inOut"
+      }
+    });
+    var _progressComplete = gsap.timeline({
+      paused: true,
+      defaults: {
+        duration: 1,
+        ease: "power2.inOut"
+      }
+    });
+
+    sidebarHandler();
+    iframeHandler();
+    progressHandler();
+
+    function sidebarHandler() {
+      var anchors = document.querySelectorAll('#secondary a, #tertiary a');
+      anchors.forEach(function(anchor) {
+        if (!!anchor.target && anchor.target !== '_self') {
+          return;
+        }
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+
+          setActiveClass(this);
+          setIframe(this);
+
+          return false;
+        });
+      });
+    }
+
+    function setActiveClass(target) {
+      var parentNode = target.parentNode;
+      var siblings = [].slice.call(parentNode.parentNode.children).filter(function (sibling) {
+        return sibling !== target;
+      });
+
+      siblings.forEach(function(sibling) {
+        sibling.classList.remove('active');
+      });
+
+      parentNode.classList.add('active');
+    }
+
+    function setIframe(target) {
+      _progressStart.timeScale(2).play();
+
+      var iframe = document.getElementById('iframe');
+      var scrolling = null;
+
+      if (target.dataset.scrolling) {
+        scrolling = target.dataset.scrolling;
+      } else if (iframe.dataset.scrolling){
+        scrolling = iframe.dataset.scrolling;
+      }
+
+      iframe.scrolling = scrolling;
+      iframe.src = target.getAttribute('href');
+    }
+
+    function iframeHandler() {
+      var iframe = document.getElementById('iframe');
+      iframe.addEventListener('load', function() {
+        var div = document.getElementById('progress-bar');
+        var span = div.firstChild;
+
+        _progressStart.timeScale(2).tweenFromTo(0, 1, { onComplete: function() {
+          _progressComplete.timeScale(2).tweenFromTo(0, 1);
+        }});
+
+        var body = this.contentWindow.document.body;
+        this.width = body.scrollWidth;
+        this.height = body.scrollHeight;
+      });
+    }
+
+    function progressHandler() {
+      var div = document.getElementById('progress-bar');
+      div.style.overflow = 'hidden';
+      div.style.position = 'relative';
+      div.style.width = '100%';
+      div.style.height = '3px';
+      div.style.backgroundColor = 'transparent';
+
+      var span = document.createElement('span');
+      span.style.display = 'block';
+      span.style.position = 'absolute';
+      span.style.top = '0';
+      span.style.left = '0';
+      span.style.width = '0';
+      span.style.height = '100%';
+      span.style.backgroundColor = '#ba2d0b';
+      span.style.backgroundImage = 'linear-gradient(319deg, #ba2d0b 0%, #fe7f2d 37%, #ffbf46 100%)';
+
+      div.appendChild(span);
+
+      _progressStart.fromTo(span, { left: 0, width: 0 }, { left: 0, width: '100%' });
+      _progressComplete.fromTo(span, { left: 0, width: '100%' }, { left: '200%', width: 0 });
+    }
+  </script>
 </body>
 
 </html>
