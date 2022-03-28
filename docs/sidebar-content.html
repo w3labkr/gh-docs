@@ -89,16 +89,24 @@ a:hover {
 .site-sidebar .sidebar-list {
   margin-top: 0;
   margin-bottom: 0;
-  padding-left: 15px;
+  padding-left: 20px;
   word-break: break-all;
+  list-style: none;
 }
 .site-sidebar .sidebar-list li.sidebar-text {
-  margin-top: 15px;
-  margin-left: -15px;
-  list-style-type: none;
+  margin-top: 20px;
+  margin-left: -20px;
 }
 .site-sidebar .sidebar-list li.sidebar-item {
   margin-top: 10px;
+}
+.site-sidebar .sidebar-list li.sidebar-item:before {
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: -20px;
+  content: '\02022';
 }
 .site-sidebar .sidebar-list li:first-child {
   margin-top: 0;
