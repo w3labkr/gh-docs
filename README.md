@@ -70,6 +70,10 @@ GreenSock's GSAP JavaScript animation library (including Draggable).
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/gsap.min.js"></script>
 ```
 
+## Browser Support
+
+Chrome 96+, Edge 96+, Firefox 78+, Internet Explorer 11, Opera 82+, Safari 14.1+
+
 ## License
 
 This software is licensed under the [MIT LICENSE](LICENSE).
