@@ -35,6 +35,24 @@ This could be a file loaded later or link target a user tries to follow.
 </head>
 ```
 
+## CDN
+
+stylesheet
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@latest/dist/content.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@latest/dist/sidebar-content.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@latest/dist/sidebar-sidebar-content.css">
+```
+
+script
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@latest/dist/content.js">
+<script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@latest/dist/sidebar-content.js">
+<script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@latest/dist/sidebar-sidebar-content.js">
+```
+
 ## Dependency
 
 A modern alternative to CSS resets
