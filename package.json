@@ -27,5 +27,11 @@
         "stylelint-order": "^5.0.0",
         "stylelint-prettier": "^2.0.0",
         "stylelint-rational-order-plugin": "^1.0.2"
-    }
+    },
+    "browserslist": [
+        "> 0.5%",
+        "last 2 versions",
+        "Firefox ESR",
+        "not dead"
+    ]
 }

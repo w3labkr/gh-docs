@@ -18,64 +18,12 @@
   <link rel="preconnect" href="https://ajax.googleapis.com" crossorigin>
   <link rel="dns-prefetch" href="https://ajax.googleapis.com">
 
-  <!--
-  A modern alternative to CSS resets
-
-  https://necolas.github.io/normalize.css/
-  -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
-
-  <!--
-  Official open source SVG icon library for Bootstrap.
-
-  https://icons.getbootstrap.com/
-  -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-
   <title>gh-docs</title>
 
-  <style>
-* {
-  box-sizing: border-box;
-  font-weight: 100;
-  font-family: 'Noto Sans KR', sans-serif;
-}
-a {
-  text-decoration: none;
-}
-a:focus,
-a:active,
-a:hover {
-  text-decoration: underline;
-}
-.site {
-  padding-top: 60px;
-}
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 60px;
-  padding: 0 15px;
-  border-bottom: 1px solid #dddddd;
-  background-color: #ffffff;
-  box-shadow: 0 1px 20px 0 rgb(0 0 0 / 10%);
-}
-.site-title {
-  font-size: 18px;
-}
-.site-nav a {
-  margin-left: 5px;
-}
-.site-nav a.active {
-  color: rgb(255 0 0);
-}
-  </style>
+  <!-- stylesheets -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.0.4/dist/css/content.css">
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178473923-2"></script>
@@ -128,69 +76,9 @@ a:hover {
   WebFont.load(WebFontConfig);
   </script>
 
-  <!--
-  GreenSock's GSAP JavaScript animation library (including Draggable).
-
-  https://github.com/greensock/GSAP
-  -->
+  <!-- scripts -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/gsap.min.js"></script>
-  <script>
-navHandler();
-iframeHandler();
-
-function navHandler() {
-  var anchors = document.querySelectorAll('#page-nav a');
-  anchors.forEach(function (anchor) {
-    if (!!anchor.target && anchor.target !== '_self') {
-      return;
-    }
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-
-      setActiveClass(this);
-      setIframe(this);
-
-      return false;
-    });
-  });
-}
-
-function setActiveClass(target) {
-  var siblings = [].slice.call(target.parentNode.children).filter(function (sibling) {
-    return sibling !== target;
-  });
-
-  siblings.forEach(function (sibling) {
-    sibling.classList.remove('active');
-  });
-
-  target.classList.add('active');
-}
-
-function setIframe(target) {
-  var iframe = document.getElementById('iframe');
-  var scrolling = null;
-
-  if (target.dataset.scrolling) {
-    scrolling = target.dataset.scrolling;
-  } else if (iframe.dataset.scrolling) {
-    scrolling = iframe.dataset.scrolling;
-  }
-
-  iframe.scrolling = scrolling;
-  iframe.src = target.getAttribute('href');
-}
-
-function iframeHandler() {
-  var iframe = document.getElementById('iframe');
-  iframe.addEventListener('load', function () {
-    var body = this.contentWindow.document.body;
-    this.width = body.scrollWidth;
-    this.height = body.scrollHeight;
-    this.style.height = body.scrollHeight + 'px';
-  });
-}
-  </script>
+  <script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.0.4/dist/js/content.js">
 </body>
 
 </html>
