@@ -25,7 +25,7 @@
   }
 
   function sidebarHandler() {
-    document.querySelectorAll('#secondary a').forEach(function (anchor) {
+    document.querySelectorAll('#tertiary a').forEach(function (anchor) {
       if (!!anchor.target && anchor.target !== '_self') {
         return;
       }

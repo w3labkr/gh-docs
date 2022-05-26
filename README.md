@@ -4,13 +4,14 @@ A single page document HTML template using an iframe.
 
 ## Directory Structure
 
-```
+```text
 .
 └── docs/
     ├── inc/
     │   ├── ex1.html
     │   ├── ex2.html
     │   └── ex3.html
+    ├── content-sidebar.html
     ├── content.html
     ├── index.html
     ├── sidebar-content.html
@@ -37,20 +38,19 @@ This could be a file loaded later or link target a user tries to follow.
 
 ## CDN
 
-stylesheet
+filename: content, content-sidebar, sidebar-content, sidebar-sidebar-content
+
+**stylesheet**
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@latest/dist/content.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@latest/dist/sidebar-content.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@latest/dist/sidebar-sidebar-content.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.1.0/dist/reset.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.1.0/dist/{filename}.css">
 ```
 
-script
+**script**
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@latest/dist/content.js">
-<script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@latest/dist/sidebar-content.js">
-<script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@latest/dist/sidebar-sidebar-content.js">
+<script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.1.0/dist/{filename}.js">
 ```
 
 ## Dependency
@@ -87,10 +87,6 @@ GreenSock's GSAP JavaScript animation library (including Draggable).
 ```html
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/gsap.min.js"></script>
 ```
-
-## Browser Support
-
-Chrome 96+, Edge 96+, Firefox 78+, Internet Explorer 11, Opera 82+, Safari 14.1+
 
 ## License
 
