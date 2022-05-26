@@ -53,11 +53,11 @@
   height: 100%;
   overflow-y: scroll;
 }
-.site-sidebar.sidebar-1 {
-  float: left;
+.site-sidebar.sidebar-2 {
+  float: right;
   width: 200px;
   padding: 15px;
-  border-right: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
 }
 .sidebar-list {
   margin-top: 0;

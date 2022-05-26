@@ -1,16 +1,12 @@
-* {
-  box-sizing: border-box;
-  font-weight: 100;
-  font-family: 'Noto Sans KR', sans-serif;
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
 }
-a {
-  text-decoration: none;
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
 }
-a:focus,
-a:active,
-a:hover {
-  text-decoration: underline;
-}
+
 .site {
   width: 100vw;
   height: 100vh;
@@ -26,59 +22,79 @@ a:hover {
 .site-title {
   font-size: 18px;
 }
+.site-nav a + a {
+  margin-left: 10px;
+}
+.site-nav a.active {
+  color: rgb(255 0 0);
+}
+
 .site-content {
   height: calc(100% - 60px);
 }
 .site-content:after {
   display: block;
   clear: both;
+
   content: '';
 }
-.site-sidebar {
-  float: left;
+.site-content > .main-area,
+.site-content > .main-area > div {
   height: 100%;
-  overflow-y: scroll;
 }
-.site-sidebar.sidebar-1 {
-  width: 200px;
-  padding: 15px;
-}
-.site-sidebar.sidebar-2 {
-  width: 200px;
-  padding: 15px;
-  border-left: 1px solid #dddddd;
-}
+
 .site-main {
   float: left;
   width: calc(100% - 400px);
   height: 100%;
-  border-left: 1px solid #dddddd;
 }
-.site-sidebar .sidebar-list {
+
+.site-sidebar {
+  height: 100%;
+  overflow-y: scroll;
+}
+.site-sidebar.sidebar-1 {
+  float: left;
+  width: 200px;
+  padding: 15px;
+  border-right: 1px solid #dddddd;
+}
+.site-sidebar.sidebar-2 {
+  float: left;
+  width: 200px;
+  padding: 15px;
+  border-right: 1px solid #dddddd;
+}
+
+.sidebar-list {
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 20px;
+
   word-break: break-all;
+
   list-style: none;
 }
-.site-sidebar .sidebar-list li.sidebar-text {
+.sidebar-list > li.sidebar-text {
   margin-top: 20px;
   margin-left: -20px;
 }
-.site-sidebar .sidebar-list li.sidebar-item {
+.sidebar-list > li.sidebar-item {
   margin-top: 10px;
 }
-.site-sidebar .sidebar-list li.sidebar-item:before {
+.sidebar-list > li.sidebar-item:before {
   position: relative;
   top: 2px;
+
   display: inline-block;
   margin-right: 5px;
   margin-left: -20px;
+
   content: '\02022';
 }
-.site-sidebar .sidebar-list li:first-child {
+.sidebar-list > li:first-child {
   margin-top: 0;
 }
-.site-sidebar .sidebar-list li.sidebar-item.active a {
+.sidebar-list > li.sidebar-item.active a {
   color: rgb(255 0 0);
 }

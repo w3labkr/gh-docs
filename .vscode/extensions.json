@@ -1,0 +1,19 @@
+{
+    "recommendations": [
+        "zhuangtongfa.material-theme",
+        "vscode-icons-team.vscode-icons",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "sleistner.vscode-fileutils",
+        "compulim.indent4to2",
+        "alefragnani.project-manager",
+        "liximomo.sftp",
+        "stylelint.vscode-stylelint",
+        "esbenp.prettier-vscode",
+        "davidanson.vscode-markdownlint",
+        "dbaeumer.vscode-eslint",
+        "hookyqr.beautify",
+        "mrmlnc.vscode-autoprefixer",
+        "ritwickdey.LiveServer"
+    ]
+}
