@@ -27,12 +27,12 @@ This could be a file loaded later or link target a user tries to follow.
 
 ```html
 <head>
-  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <meta http-equiv="x-dns-prefetch-control" content="on" />
 
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-  <link rel="preconnect" href="https://ajax.googleapis.com" crossorigin>
-  <link rel="dns-prefetch" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://ajax.googleapis.com" crossorigin />
+  <link rel="dns-prefetch" href="https://ajax.googleapis.com" />
 </head>
 ```
 
@@ -43,14 +43,14 @@ filename: content, content-sidebar, sidebar-content, sidebar-sidebar-content
 **stylesheet**
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.1.2/dist/reset.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.1.2/dist/{filename}.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.1.3/dist/reset.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.1.3/dist/{filename}.css" />
 ```
 
 **script**
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.1.2/dist/{filename}.js">
+<script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.1.3/dist/{filename}.js">
 ```
 
 ## Dependency
@@ -58,13 +58,13 @@ filename: content, content-sidebar, sidebar-content, sidebar-sidebar-content
 A modern alternative to CSS resets
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" />
 ```
 
 Official open source SVG icon library for Bootstrap.
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
 ```
 
 Web Font Loader gives you added control when using linked fonts via @font-face.
@@ -72,13 +72,13 @@ Web Font Loader gives you added control when using linked fonts via @font-face.
 ```html
 <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
 <script>
-var WebFontConfig = {
-  google: {
-    families: ['Noto Sans KR:100'],
-    text: ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
-  }
-};
-WebFont.load(WebFontConfig);
+  var WebFontConfig = {
+    google: {
+      families: ['Noto Sans KR:100'],
+      text: ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~',
+    },
+  };
+  WebFont.load(WebFontConfig);
 </script>
 ```
 
