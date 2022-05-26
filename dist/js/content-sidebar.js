@@ -44,18 +44,16 @@
     _progressStart.timeScale(2).play();
 
     var iframe = document.getElementById('iframe');
-    var scrolling = null;
 
     var anchorScrolling = anchor.getAttribute('data-scrolling');
     var iframeScrolling = iframe.getAttribute('data-scrolling');
 
     if (anchorScrolling) {
-      scrolling = anchorScrolling;
+      iframe.scrolling = anchorScrolling;
     } else if (iframeScrolling) {
-      scrolling = iframeScrolling;
+      iframe.scrolling = iframeScrolling;
     }
 
-    iframe.scrolling = scrolling;
     iframe.src = anchor.getAttribute('href');
   }
 
