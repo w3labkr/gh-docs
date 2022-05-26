@@ -43,14 +43,14 @@ filename: content, content-sidebar, sidebar-content, sidebar-sidebar-content
 **stylesheet**
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.1.1/dist/reset.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.1.1/dist/{filename}.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.1.2/dist/reset.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.1.2/dist/{filename}.css">
 ```
 
 **script**
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.1.1/dist/{filename}.js">
+<script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.1.2/dist/{filename}.js">
 ```
 
 ## Dependency
