@@ -49,15 +49,11 @@
         "editor.formatOnSave": true
     },
 
-    "css.validate": false,
-    "css.lint.emptyRules": "ignore",
-    "css.lint.unknownProperties": "ignore",
-
     "stylelint.enable": true,
-    "stylelint.validate": ["css", "less", "postcss"],
-    "stylelint.snippet": ["css", "less", "postcss"],
+    "stylelint.validate": ["css", "scss", "less", "postcss"],
+    "stylelint.snippet": ["css", "scss", "less", "postcss"],
 
-    "autoprefixer.formatOnSave": true, 
+    "autoprefixer.formatOnSave": false, 
     "autoprefixer.ignoreFiles": [
         "**/*.min.css"
     ],
@@ -69,11 +65,15 @@
             "not dead"
         ]
     },
+    
+    "scss.validate": false,
+    "scss.lint.emptyRules": "ignore",
+    "scss.lint.unknownProperties": "ignore",
 
-    "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[scss]": {
+        "editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter",
         "editor.tabSize": 2,
-        "editor.formatOnSave": true,
+        "editor.formatOnSave": false,
         "editor.codeActionsOnSave": {
             "source.fixAll.stylelint": true
         }

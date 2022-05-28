@@ -26,7 +26,7 @@
 
 </head>
 
-<body class="no-sidebar">
+<body class="@@bodyClass">
   <!--[if lte IE 9]>
   <noscript>
     <div style="padding:10px;">
@@ -49,10 +49,10 @@
         <a class="site-title" href="index.html">W3LabKr</a>
       </div>
       <nav id="page-nav" class="site-nav">
-        <a class="active" href="content.html">Example1</a>
-        <a class="" href="content-sidebar.html">Example2</a>
-        <a class="" href="sidebar-content.html">Example3</a>
-        <a class="" href="sidebar-sidebar-content.html">Example4</a>
+        <a class="@@navClass.content" href="content.html">Example1</a>
+        <a class="@@navClass.contentSidebar" href="content-sidebar.html">Example2</a>
+        <a class="@@navClass.sidebarContent" href="sidebar-content.html">Example3</a>
+        <a class="@@navClass.sidebarSidebarContent" href="sidebar-sidebar-content.html">Example4</a>
         <a href="https://github.com/w3labkr/gh-docs" target="_blank">
           <i class="bi bi-box-arrow-up-right"></i> Github
         </a>
@@ -60,50 +60,3 @@
     </header>
 
     <div id="content" class="site-content">
-
-
-
-
-      <div id="main-content" class="main-area">
-        <div class="main-inner container-fluid">
-
-
-
-          <main id="primary" class="site-main">
-            <div id="progress-bar"></div>
-            <iframe id="iframe" src="dummy-texts/example1.html" frameborder="0" scrolling="yes"
-              style="width:100%;height:100%;"></iframe>
-          </main>
-
-
-
-        </div><!-- .container -->
-      </div><!-- #main-content -->
-
-    </div><!-- #content -->
-
-    <footer id="colophon" class="site-footer"></footer>
-  </div><!-- #site -->
-
-  <!--
-Web Font Loader gives you added control when using linked fonts via @font-face.
-
-https://github.com/typekit/webfontloader
--->
-  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-  <script>
-var WebFontConfig = {
-google: {
-  families: ['Noto Sans KR:100'],
-  text: ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
-}
-};
-WebFont.load(WebFontConfig);
-</script>
-
-  <!-- scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/gsap.min.js"></script>
-  <script src="assets/js/gh-docs.min.js"></script>
-</body>
-
-</html>

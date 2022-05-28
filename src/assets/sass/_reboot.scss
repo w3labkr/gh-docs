@@ -8,15 +8,23 @@ body {
 .container {
   padding-right: 15px;
   padding-left: 15px;
+
+  &::after {
+    display: block;
+    clear: both;
+
+    content: '';
+  }
 }
+
 .container-fluid {
   padding-right: 0;
   padding-left: 0;
-}
-.container::after,
-.container-fluid::after {
-  display: block;
-  clear: both;
 
-  content: '';
+  &::after {
+    display: block;
+    clear: both;
+
+    content: '';
+  }
 }

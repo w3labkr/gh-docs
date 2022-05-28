@@ -6,14 +6,11 @@ A single page document HTML template using an iframe.
 
 ```text
 .
-|-- dist/
-|   |-- gh-docs.css
-|   `-- gh-docs.js
-`-- docs/
-    |-- content-sidebar.html
-    |-- content.html
-    |-- sidebar-content.html
-    `-- sidebar-sidebar-content.html
+`-- dist/
+    |-- gh-docs.css
+    |-- gh-docs.min.css
+    |-- gh-docs.js
+    `-- gh-docs.min.js
 ```
 
 Directory tree created by [tree.nathanfriend.io](https://tree.nathanfriend.io/)

@@ -4,8 +4,8 @@
         "node": true
     },
     "parserOptions": {
-        "ecmaVersion": 5,
-        "sourceType": "script"
+        "ecmaVersion": 6,
+        "sourceType": "module"
     },
     "extends": [
         "eslint:recommended",
