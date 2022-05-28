@@ -2,7 +2,13 @@
 
 ## Development
 
-Install the npm package in your devDependencies.
+Install the gulp command line utility
+
+```
+npm install --global gulp-cli
+```
+
+Install the npm packages in your devDependencies.
 
 ```shell
 npm install

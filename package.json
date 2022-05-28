@@ -1,6 +1,6 @@
 {
     "name": "gh-docs",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "A single page document HTML template using an iframe.",
     "main": "index.js",
     "scripts": {
@@ -44,6 +44,7 @@
         "gulp-sourcemaps": "^3.0.0",
         "gulp-uglify": "^3.0.2",
         "js-beautify": "^1.14.3",
+        "merge-stream": "^2.0.0",
         "postcss": "^8.4.14",
         "prettier": "^2.6.2",
         "sass": "^1.52.1",
