@@ -25,6 +25,7 @@
                 "empty-line-between-groups": true
             }
         ],
+        "block-no-empty": null,
         "property-no-vendor-prefix": null
     }
 }
