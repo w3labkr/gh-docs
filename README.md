@@ -7,14 +7,14 @@ A single page document HTML template using an iframe.
 ```text
 .
 ├── dist/
-│   ├── gh-docs.css
-│   ├── gh-docs.css.map
-│   ├── gh-docs.min.css
-│   ├── gh-docs.min.css.map
-│   ├── gh-docs.js
-│   ├── gh-docs.js.map
-│   ├── gh-docs.min.js
-│   └── gh-docs.min.js.map
+│   ├── all.css
+│   ├── all.css.map
+│   ├── all.min.css
+│   ├── all.min.css.map
+│   ├── all.js
+│   ├── all.js.map
+│   ├── all.min.js
+│   └── all.min.js.map
 └── src/
     ├── assets/
     │   ├── image/
@@ -39,13 +39,13 @@ Directory tree created by [tree.nathanfriend.io](https://tree.nathanfriend.io/)
 stylesheet
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.2.1/dist/gh-docs.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.2.2/dist/all.min.css" />
 ```
 
 script
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.2.1/dist/gh-docs.min.js">
+<script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.2.2/dist/all.min.js">
 ```
 
 ## Dependency

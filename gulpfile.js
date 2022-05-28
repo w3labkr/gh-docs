@@ -1,5 +1,3 @@
-'use strict';
-
 const gulp = require('gulp');
 const { watch, series, parallel } = require('gulp');
 
@@ -60,6 +58,7 @@ function cssTranspile() {
     .src('src/assets/sass/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
+    .pipe(concat('all.css'))
     .pipe(postcss([autoprefixer()]))
     .pipe(header(banner, { pkg: pkg }))
     .pipe(sourcemaps.write('.'))
@@ -71,6 +70,7 @@ function cssMinify() {
     .src('src/assets/sass/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
+    .pipe(concat('all.css'))
     .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(header(banner, { pkg: pkg }))
     .pipe(rename({ suffix: '.min' }))
@@ -82,6 +82,7 @@ function jsTranspile() {
   return gulp
     .src('src/assets/js/**/*.js')
     .pipe(sourcemaps.init())
+    .pipe(concat('all.js'))
     .pipe(babel())
     .pipe(header(banner, { pkg: pkg }))
     .pipe(sourcemaps.write('.'))
@@ -92,6 +93,7 @@ function jsMinify() {
   return gulp
     .src('src/assets/js/**/*.js')
     .pipe(sourcemaps.init())
+    .pipe(concat('all.js'))
     .pipe(babel())
     .pipe(uglify())
     .pipe(header(banner, { pkg: pkg }))

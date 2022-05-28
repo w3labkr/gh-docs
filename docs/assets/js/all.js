@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2022 W3LabKr
  * gh-docs - A single page document HTML template using an iframe.
- * @version v1.2.1
+ * @version v1.2.2
  * @link https://github.com/w3labkr/gh-docs#readme
  * @license ISC
  */
-"use strict";
+'use strict';
 
 (function (window, document, undefined) {
   /* global gsap */
@@ -198,17 +198,6 @@
     });
   }
 
-  function getClosest(element, selector) {
-    var el = element;
-
-    do {
-      if (el.matches(selector)) return el;
-      el = el.parentElement || el.parentNode;
-    } while (el !== null && el.nodeType === 1);
-
-    return null;
-  }
-
   initialize();
 })(window, document);
-//# sourceMappingURL=gh-docs.js.map
+//# sourceMappingURL=all.js.map

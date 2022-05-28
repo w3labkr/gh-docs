@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2022 W3LabKr
  * gh-docs - A single page document HTML template using an iframe.
- * @version v1.2.1
+ * @version v1.2.2
  * @link https://github.com/w3labkr/gh-docs#readme
  * @license ISC
  */
@@ -202,4 +202,4 @@ body.has-sidebar--2 .site-main {
 .sidebar-list > li.sidebar-item.active a {
   color: var(--secondary-color);
 }
-/*# sourceMappingURL=gh-docs.css.map */
+/*# sourceMappingURL=all.css.map */
