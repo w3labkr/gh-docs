@@ -17,7 +17,7 @@ A single page document HTML template using an iframe.
 │   └── all.min.js.map
 └── src/
     ├── assets/
-    │   ├── image/
+    │   ├── images/
     │   ├── js/
     │   └── scss/
     ├── data/
@@ -39,13 +39,13 @@ Directory tree created by [tree.nathanfriend.io](https://tree.nathanfriend.io/)
 stylesheet
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.2.3/dist/all.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.2.4/dist/all.min.css" />
 ```
 
 script
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.2.3/dist/all.min.js">
+<script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.2.4/dist/all.min.js">
 ```
 
 ## Dependency

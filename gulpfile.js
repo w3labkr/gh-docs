@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const { watch, series, parallel } = require('gulp');
+const { src, dest, watch, series, parallel } = require('gulp');
 
 const del = require('del');
 const rename = require('gulp-rename');
@@ -37,8 +37,7 @@ function clean() {
 }
 
 function htmlTranspile() {
-  return gulp
-    .src(['src/index.html', 'src/templates/**/*.html'])
+  return src(['src/index.html', 'src/templates/**/*.html'])
     .pipe(
       fileinclude({
         prefix: '@@',
@@ -46,28 +45,26 @@ function htmlTranspile() {
       })
     )
     .pipe(beautify())
-    .pipe(gulp.dest('./docs'));
+    .pipe(dest('docs'));
 }
 
 function imageTranspile() {
-  return gulp.src(['src/assets/images/**/*']).pipe(imagemin()).pipe(gulp.dest('./docs/assets/images'));
+  return src(['src/assets/images/**/*']).pipe(imagemin()).pipe(dest('docs/assets/images'));
 }
 
 function cssTranspile() {
-  return gulp
-    .src('src/assets/sass/**/*.scss')
+  return src('src/assets/sass/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('all.css'))
     .pipe(postcss([autoprefixer()]))
     .pipe(header(banner, { pkg: pkg }))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('docs/assets/css'));
+    .pipe(dest('docs/assets/css'));
 }
 
 function cssMinify() {
-  return gulp
-    .src('src/assets/sass/**/*.scss')
+  return src('src/assets/sass/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('all.css'))
@@ -75,23 +72,21 @@ function cssMinify() {
     .pipe(header(banner, { pkg: pkg }))
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('docs/assets/css'));
+    .pipe(dest('docs/assets/css'));
 }
 
 function jsTranspile() {
-  return gulp
-    .src('src/assets/js/**/*.js')
+  return src('src/assets/js/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(concat('all.js'))
     .pipe(babel())
     .pipe(header(banner, { pkg: pkg }))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('docs/assets/js'));
+    .pipe(dest('docs/assets/js'));
 }
 
 function jsMinify() {
-  return gulp
-    .src('src/assets/js/**/*.js')
+  return src('src/assets/js/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(concat('all.js'))
     .pipe(babel())
@@ -99,19 +94,19 @@ function jsMinify() {
     .pipe(header(banner, { pkg: pkg }))
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('docs/assets/js'));
+    .pipe(dest('docs/assets/js'));
 }
 
 function publish() {
   return mergeStream(
-    gulp.src(['src/data/**/*']).pipe(gulp.dest('docs/data')),
-    gulp.src(['docs/assets/css/**/*', 'docs/assets/js/**/*']).pipe(gulp.dest('dist'))
+    src(['src/data/**/*']).pipe(dest('docs/data')),
+    src(['docs/assets/css/**/*', 'docs/assets/js/**/*']).pipe(dest('dist'))
   );
 }
 
 exports.watch = function () {
   watch('src/**/*.html', htmlTranspile);
-  watch('src/assets/image/**/*', imageTranspile);
+  watch('src/assets/images/**/*', imageTranspile);
   watch('src/assets/sass/**/*.scss', cssMinify);
   watch('src/assets/js/**/*.js', jsMinify);
 };
