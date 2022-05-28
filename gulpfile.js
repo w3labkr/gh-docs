@@ -8,6 +8,7 @@ const rename = require('gulp-rename');
 const concat = require('gulp-concat');
 const header = require('gulp-header');
 const sourcemaps = require('gulp-sourcemaps');
+const mergeStream = require('merge-stream');
 
 const fileinclude = require('gulp-file-include');
 const beautify = require('gulp-jsbeautifier');
@@ -39,7 +40,7 @@ function clean() {
 
 function htmlTranspile() {
   return gulp
-    .src(['src/index.html', 'src/templates/*.html'])
+    .src(['src/index.html', 'src/templates/**/*.html'])
     .pipe(
       fileinclude({
         prefix: '@@',
@@ -56,19 +57,18 @@ function imageTranspile() {
 
 function cssTranspile() {
   return gulp
-    .src('src/assets/sass/*.scss')
+    .src('src/assets/sass/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss([autoprefixer()]))
     .pipe(header(banner, { pkg: pkg }))
-    .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('docs/assets/css'));
 }
 
 function cssMinify() {
   return gulp
-    .src('src/assets/sass/*.scss')
+    .src('src/assets/sass/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss([autoprefixer(), cssnano()]))
@@ -80,18 +80,17 @@ function cssMinify() {
 
 function jsTranspile() {
   return gulp
-    .src('src/assets/js/*.js')
+    .src('src/assets/js/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(babel())
     .pipe(header(banner, { pkg: pkg }))
-    .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('docs/assets/js'));
 }
 
 function jsMinify() {
   return gulp
-    .src('src/assets/js/*.js')
+    .src('src/assets/js/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(babel())
     .pipe(uglify())
@@ -101,23 +100,18 @@ function jsMinify() {
     .pipe(gulp.dest('docs/assets/js'));
 }
 
-function textPublish() {
-  return gulp.src(['src/dummy-texts/*']).pipe(gulp.dest('docs/dummy-texts'));
-}
-
 function publish() {
-  return gulp.src(['docs/assets/css/*', 'docs/assets/js/*']).pipe(gulp.dest('dist'));
+  return mergeStream(
+    gulp.src(['src/data/**/*']).pipe(gulp.dest('docs/data')),
+    gulp.src(['docs/assets/css/**/*', 'docs/assets/js/**/*']).pipe(gulp.dest('dist'))
+  );
 }
 
 exports.watch = function () {
   watch('src/**/*.html', htmlTranspile);
-  watch('src/assets/sass/*.scss', cssMinify);
-  watch('src/assets/js/*.js', jsMinify);
+  watch('src/assets/image/**/*', imageTranspile);
+  watch('src/assets/sass/**/*.scss', cssMinify);
+  watch('src/assets/js/**/*.js', jsMinify);
 };
 
-exports.build = series(
-  clean,
-  parallel(htmlTranspile, cssTranspile, cssMinify, jsTranspile, jsMinify),
-  publish,
-  textPublish
-);
+exports.build = series(clean, parallel(htmlTranspile, cssTranspile, cssMinify, jsTranspile, jsMinify), publish);

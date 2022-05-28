@@ -16,7 +16,7 @@
         "**/Gemfile.lock": true,
         "**/.history": true
     },
-    
+
     "editor.formatOnSave": false,
     "editor.insertSpaces": true,
     "editor.detectIndentation": false,
@@ -53,7 +53,7 @@
     "stylelint.validate": ["css", "scss", "less", "postcss"],
     "stylelint.snippet": ["css", "scss", "less", "postcss"],
 
-    "autoprefixer.formatOnSave": false, 
+    "autoprefixer.formatOnSave": false,
     "autoprefixer.ignoreFiles": [
         "**/*.min.css"
     ],
@@ -65,13 +65,13 @@
             "not dead"
         ]
     },
-    
+
     "scss.validate": false,
     "scss.lint.emptyRules": "ignore",
     "scss.lint.unknownProperties": "ignore",
 
     "[scss]": {
-        "editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.tabSize": 2,
         "editor.formatOnSave": false,
         "editor.codeActionsOnSave": {
@@ -84,7 +84,7 @@
 
     "eslint.format.enable": true,
     "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
-    
+
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.tabSize": 2,

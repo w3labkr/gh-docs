@@ -1,0 +1,205 @@
+/**
+ * Copyright (c) 2022 W3LabKr
+ * gh-docs - A single page document HTML template using an iframe.
+ * @version v1.2.1
+ * @link https://github.com/w3labkr/gh-docs#readme
+ * @license ISC
+ */
+@charset "UTF-8";
+/* Selects the root element of the document:
+   <html> in the case of HTML */
+:root {
+  --selection-color: rgb(255 255 0 / 30%);
+  --primary-font-family: "Noto Sans KR", sans-serif;
+  --primary-color: #49cc90;
+  --primary-border-color: #dddddd;
+  --secondary-color: rgb(255 0 0);
+}
+
+html {
+  box-sizing: border-box;
+  /* font-size 1em = 10px on default browser settings */
+  font-size: 62.5%;
+}
+
+/* Inheriting box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* HTML5 hidden-attribute fix for newer browsers */
+*[hidden] {
+  display: none;
+}
+
+/* Fixed text size for ios */
+html,
+body {
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+body {
+  font-weight: 100;
+  font-size: 16px;
+  font-family: var(--primary-font-family);
+  line-height: 1.6;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+  word-break: break-all;
+}
+a:focus, a:active, a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+}
+
+::-moz-selection {
+  background-color: var(--selection-color);
+}
+
+::selection {
+  background-color: var(--selection-color);
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.container::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+}
+.container-fluid::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.site {
+  width: 100vw;
+  height: 100vh;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 15px;
+  border-bottom: 1px solid var(--primary-border-color);
+}
+
+.site-content {
+  height: calc(100% - 60px);
+}
+.site-content:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.main-area,
+.main-inner,
+.site-main,
+.site-sidebar {
+  height: 100%;
+}
+
+.site-main {
+  float: left;
+  width: 100%;
+}
+
+body.has-sidebar--1 .site-main {
+  width: calc(100% - 200px);
+}
+
+body.has-sidebar--2 .site-main {
+  width: calc(100% - 400px);
+}
+
+.site-sidebar {
+  width: 200px;
+  padding: 15px;
+  overflow-y: scroll;
+}
+
+.sidebar-left {
+  float: left;
+  border-right: 1px solid var(--primary-border-color);
+}
+
+.sidebar-right {
+  float: right;
+  border-left: 1px solid var(--primary-border-color);
+}
+
+.site-title {
+  font-size: 18px;
+}
+
+.site-nav a.active {
+  color: var(--secondary-color);
+}
+.site-nav a + a {
+  margin-left: 10px;
+}
+
+.sidebar-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 20px;
+  word-break: break-all;
+  list-style: none;
+}
+
+.sidebar-list > li:first-child {
+  margin-top: 0;
+}
+
+.sidebar-list > li.sidebar-text {
+  margin-top: 20px;
+  margin-left: -20px;
+}
+
+.sidebar-list > li.sidebar-item {
+  margin-top: 10px;
+}
+.sidebar-list > li.sidebar-item:before {
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: -20px;
+  content: "•";
+}
+.sidebar-list > li.sidebar-item.active a {
+  color: var(--secondary-color);
+}
+/*# sourceMappingURL=gh-docs.css.map */

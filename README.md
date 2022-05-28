@@ -6,11 +6,30 @@ A single page document HTML template using an iframe.
 
 ```text
 .
-`-- dist/
-    |-- gh-docs.css
-    |-- gh-docs.min.css
-    |-- gh-docs.js
-    `-- gh-docs.min.js
+├── dist/
+│   ├── gh-docs.css
+│   ├── gh-docs.css.map
+│   ├── gh-docs.min.css
+│   ├── gh-docs.min.css.map
+│   ├── gh-docs.js
+│   ├── gh-docs.js.map
+│   ├── gh-docs.min.js
+│   └── gh-docs.min.js.map
+└── src/
+    ├── assets/
+    │   ├── image/
+    │   ├── js/
+    │   └── scss/
+    ├── data/
+    ├── template-parts/
+    │   ├── breadcrumb.html
+    │   └── hero.html
+    ├── templates/
+    ├── footer.html
+    ├── header.html
+    ├── index.html
+    ├── sidebar-1.html
+    └── sidebar-2.html
 ```
 
 Directory tree created by [tree.nathanfriend.io](https://tree.nathanfriend.io/)
@@ -20,13 +39,13 @@ Directory tree created by [tree.nathanfriend.io](https://tree.nathanfriend.io/)
 stylesheet
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.2.0/dist/gh-docs.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.2.1/dist/gh-docs.min.css" />
 ```
 
 script
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.2.0/dist/gh-docs.min.js">
+<script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.2.1/dist/gh-docs.min.js">
 ```
 
 ## Dependency
