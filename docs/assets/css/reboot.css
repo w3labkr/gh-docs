@@ -1,0 +1,22 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+}
+.container::after,
+.container-fluid::after {
+  display: block;
+  clear: both;
+
+  content: '';
+}
