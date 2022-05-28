@@ -18,6 +18,8 @@
         "redhat.vscode-xml",
         "mechatroner.rainbow-csv",
         "editorconfig.editorconfig",
-        "christian-kohler.path-intellisense"
+        "christian-kohler.path-intellisense",
+        "eg2.vscode-npm-script",
+        "christian-kohler.npm-intellisense"
     ]
 }
