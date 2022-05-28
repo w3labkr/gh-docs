@@ -1,0 +1,30 @@
+@@include('../header.html', {
+"bodyClass": "no-sidebar",
+"navClass": {
+"content": "active",
+"contentSidebar": "",
+"sidebarContent": "",
+"sidebarSidebarContent": "",
+},
+})
+
+<!-- @@include('../template-parts/hero.html') -->
+<!-- @@include('../template-parts/breadcrumb.html') -->
+
+<div id="main-content" class="main-area">
+  <div class="main-inner container-fluid">
+
+    <!-- @@include('../sidebar-1.html') -->
+
+    <main id="primary" class="site-main">
+      <div id="progress-bar"></div>
+      <iframe id="iframe" src="dummy-texts/example1.html" frameborder="0" scrolling="yes"
+        style="width:100%;height:100%;"></iframe>
+    </main>
+
+    <!-- @@include('../sidebar-2.html') -->
+
+  </div><!-- .container -->
+</div><!-- #main-content -->
+
+@@include('../footer.html')

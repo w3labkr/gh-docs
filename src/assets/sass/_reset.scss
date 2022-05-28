@@ -20,16 +20,13 @@ html {
 /* Fixed text size for ios */
 html,
 body {
-  -webkit-text-size-adjust: none;
-  -moz-text-size-adjust: none;
-  -ms-text-size-adjust: none;
   text-size-adjust: none;
 }
 
 body {
   font-weight: 100;
   font-size: 16px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: var(--primary-font-family);
   line-height: 1.6;
 }
 
@@ -41,21 +38,21 @@ table {
 a {
   text-decoration: none;
   word-break: break-all;
-}
-a:focus,
-a:active,
-a:hover {
-  text-decoration: underline;
+  
+  &:focus,
+  &:active,
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 img {
   max-width: 100%;
-  height: auto;
 }
 
 ::-moz-selection {
-  background-color: rgb(255 255 0 / 30%);
+  background-color: var(--selection-color);
 }
 ::selection {
-  background-color: rgb(255 255 0 / 30%);
+  background-color: var(--selection-color);
 }
