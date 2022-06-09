@@ -2,10 +2,10 @@
 
 ## Development
 
-Install the gulp command line utility
+Install the gulp command line utility and js-beautify.
 
-```
-npm install --global gulp-cli
+```shell
+npm install --global gulp-cli js-beautify
 ```
 
 Install the npm packages in your devDependencies.

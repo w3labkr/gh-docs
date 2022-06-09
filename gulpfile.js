@@ -111,4 +111,8 @@ exports.watch = function () {
   watch('src/assets/js/**/*.js', jsMinify);
 };
 
-exports.build = series(clean, parallel(htmlTranspile, cssTranspile, cssMinify, jsTranspile, jsMinify), publish);
+exports.build = series(
+  clean,
+  parallel(htmlTranspile, imageTranspile, cssTranspile, cssMinify, jsTranspile, jsMinify),
+  publish
+);
