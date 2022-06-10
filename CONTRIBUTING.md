@@ -11,7 +11,8 @@ npm install --global gulp-cli js-beautify
 Install the npm packages in your devDependencies.
 
 ```shell
-npm install
+npm install && npm run prepare
+npx husky add .husky/pre-commit "npx lint-staged --allow-empty"
 ```
 
 Watching Files.

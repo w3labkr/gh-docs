@@ -1,13 +1,14 @@
 {
     "name": "gh-docs",
-    "version": "1.2.6",
+    "version": "1.2.8",
     "description": "A single page document HTML template using an iframe.",
     "main": "index.js",
     "scripts": {
         "clean:dir": "rm -rf node_modules",
         "clean:cache": "npm cache clean --force",
         "clean": "npm run clean:dir && npm run clean:cache",
-        "build": "npm run clean && npm install"
+        "build": "npm run clean && npm install",
+        "prepare": "husky install"
     },
     "repository": {
         "type": "git",
@@ -43,7 +44,9 @@
         "gulp-sass": "^5.1.0",
         "gulp-sourcemaps": "^3.0.0",
         "gulp-uglify": "^3.0.2",
+        "husky": "^8.0.1",
         "js-beautify": "^1.14.3",
+        "lint-staged": "^13.0.1",
         "merge-stream": "^2.0.0",
         "postcss": "^8.4.14",
         "prettier": "^2.6.2",
@@ -54,5 +57,23 @@
         "stylelint-config-recommended-scss": "^6.0.0",
         "stylelint-order": "^5.0.0",
         "stylelint-scss": "^4.2.0"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "src/*.{htm, html}": [
+            "js-beautify --type 'html' --replace"
+        ],
+        "src/*.{css, scss, less, postcss}": [
+            "stylelint --fix",
+            "prettier --write"
+        ],
+        "src/*.{js, jsx}": [
+            "eslint --fix",
+            "prettier --write"
+        ]
     }
 }
