@@ -32,7 +32,7 @@ A single page document HTML template using an iframe.
     └── sidebar-2.html
 ```
 
-Directory tree created by [tree.nathanfriend.io](https://tree.nathanfriend.io/)
+Directory tree generated using [tree.nathanfriend.io](https://tree.nathanfriend.io/).
 
 ## CDN
 
