@@ -8,7 +8,8 @@
         "clean:cache": "npm cache clean --force",
         "clean": "npm run clean:dir && npm run clean:cache",
         "build": "npm run clean && npm install",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "release": "standard-version"
     },
     "repository": {
         "type": "git",
@@ -24,6 +25,8 @@
     "devDependencies": {
         "@babel/core": "^7.18.2",
         "@babel/preset-env": "^7.18.2",
+        "@commitlint/cli": "^17.0.2",
+        "@commitlint/config-conventional": "^17.0.2",
         "@types/gulp-imagemin": "^7.0.3",
         "autoprefixer": "^10.4.7",
         "browserslist": "^4.20.3",
@@ -51,6 +54,7 @@
         "postcss": "^8.4.14",
         "prettier": "^2.6.2",
         "sass": "^1.52.1",
+        "standard-version": "^9.5.0",
         "stylelint": "^14.8.2",
         "stylelint-config-prettier-scss": "^0.0.1",
         "stylelint-config-rational-order": "^0.1.2",
