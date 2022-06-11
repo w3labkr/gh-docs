@@ -24,6 +24,8 @@
     "devDependencies": {
         "@babel/core": "^7.18.2",
         "@babel/preset-env": "^7.18.2",
+        "@commitlint/cli": "^17.0.2",
+        "@commitlint/config-conventional": "^17.0.2",
         "@types/gulp-imagemin": "^7.0.3",
         "autoprefixer": "^10.4.7",
         "browserslist": "^4.20.3",
