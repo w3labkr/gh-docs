@@ -9713,7 +9713,7 @@
   "version" "1.2.3"
 
 "wordwrap@^1.0.0":
-  "integrity" "sha1-J1hIEIkUVqQXHI0CJkQa3pDLyus="
+  "integrity" "sha512-gvVzJFlPycKc5dZN4yPkP8w7Dc37BtP1yczEneOb4uq34pXZcvrtRTmWV8W+Ume+XCxKgbjM+nevkyFPMybd4Q=="
   "resolved" "https://registry.npmjs.org/wordwrap/-/wordwrap-1.0.0.tgz"
   "version" "1.0.0"
 
