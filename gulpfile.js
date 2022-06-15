@@ -7,6 +7,7 @@ const concat = require('gulp-concat');
 const header = require('gulp-header');
 const sourcemaps = require('gulp-sourcemaps');
 const mergeStream = require('merge-stream');
+const conventionalChangelog = require('gulp-conventional-changelog');
 
 const fileinclude = require('gulp-file-include');
 const beautify = require('gulp-jsbeautifier');
@@ -100,7 +101,15 @@ function jsMinify() {
 function publish() {
   return mergeStream(
     src(['src/data/**/*']).pipe(dest('docs/data')),
-    src(['docs/assets/css/**/*', 'docs/assets/js/**/*']).pipe(dest('dist'))
+    src(['docs/assets/css/**/*', 'docs/assets/js/**/*']).pipe(dest('dist')),
+    src('CHANGELOG.md')
+      .pipe(
+        conventionalChangelog({
+          preset: 'conventionalcommits',
+          releaseCount: 0,
+        })
+      )
+      .pipe(dest('./'))
   );
 }
 
