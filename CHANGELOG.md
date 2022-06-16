@@ -1,9 +1,9 @@
-## [1.4.0](https://github.com/w3labkr/gh-docs/compare/v1.3.0...v1.4.0) (2022-06-16)
+## [1.4.1](https://github.com/w3labkr/gh-docs/compare/1.4.0...1.4.1) (2022-06-16)
 
 
 ### Features
 
-* add bump ([1ee58a7](https://github.com/w3labkr/gh-docs/commit/1ee58a71c39a420df5a280d67bcafc3f8964f429))
+* add bump ([c1115e8](https://github.com/w3labkr/gh-docs/commit/c1115e8e9282fde00a8c202af79bd0086159f74f))
 * add conventional-changelog ([9bc70d7](https://github.com/w3labkr/gh-docs/commit/9bc70d72490e20af61f05a8f62ceae604e4f2f7c))
 * remove standard-version ([9a200be](https://github.com/w3labkr/gh-docs/commit/9a200bef1ae04bfc2919056350a4a9c32168cb2d))
 

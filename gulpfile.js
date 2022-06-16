@@ -25,13 +25,11 @@ const uglify = require('gulp-uglify');
 
 function version() {
   return src('./package.json')
-    .pipe(bump({ type: 'minor' })) // major, minor, patch
+    .pipe(bump({ type: 'patch' })) // major, minor, patch
     .pipe(dest('./'));
 }
 
-function banner() {
-  const pkg = JSON.parse(fs.readFileSync('./package.json'));
-
+function banner(pkg) {
   return [
     '/**',
     ' * Copyright (c) <%= new Date().getFullYear() %> <%= pkg.author %>',
@@ -64,7 +62,7 @@ function imageTranspile() {
   return src(['src/assets/images/**/*']).pipe(imagemin()).pipe(dest('docs/assets/images'));
 }
 
-function cssTranspile() {
+function cssBundle() {
   const pkg = JSON.parse(fs.readFileSync('./package.json'));
 
   return src('src/assets/sass/**/*.scss')
@@ -72,7 +70,7 @@ function cssTranspile() {
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('gh-docs.css'))
     .pipe(postcss([autoprefixer()]))
-    .pipe(header(banner(), { pkg: pkg }))
+    .pipe(header(banner(pkg), { pkg: pkg }))
     .pipe(sourcemaps.write('.'))
     .pipe(dest('docs/assets/css'));
 }
@@ -85,20 +83,20 @@ function cssMinify() {
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('gh-docs.css'))
     .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(header(banner(), { pkg: pkg }))
+    .pipe(header(banner(pkg), { pkg: pkg }))
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('.'))
     .pipe(dest('docs/assets/css'));
 }
 
-function jsTranspile() {
+function jsBundle() {
   const pkg = JSON.parse(fs.readFileSync('./package.json'));
 
   return src('src/assets/js/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(concat('gh-docs.js'))
     .pipe(babel())
-    .pipe(header(banner(), { pkg: pkg }))
+    .pipe(header(banner(pkg), { pkg: pkg }))
     .pipe(sourcemaps.write('.'))
     .pipe(dest('docs/assets/js'));
 }
@@ -111,7 +109,7 @@ function jsMinify() {
     .pipe(concat('gh-docs.js'))
     .pipe(babel())
     .pipe(uglify())
-    .pipe(header(banner(), { pkg: pkg }))
+    .pipe(header(banner(pkg), { pkg: pkg }))
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('.'))
     .pipe(dest('docs/assets/js'));
@@ -141,6 +139,7 @@ exports.watch = function () {
 
 exports.build = series(
   series(clean, version),
-  parallel(htmlTranspile, imageTranspile, cssTranspile, cssMinify, jsTranspile, jsMinify),
+  parallel(htmlTranspile, imageTranspile, cssBundle, jsBundle),
+  parallel(cssMinify, jsMinify),
   publish
 );
