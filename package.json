@@ -1,6 +1,6 @@
 {
     "name": "gh-docs",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "description": "A single page document HTML template using an iframe.",
     "main": "index.js",
     "scripts": {
