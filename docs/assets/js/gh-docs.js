@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2022 W3LabKr
  * gh-docs - A single page document HTML template using an iframe.
- * @version v1.2.5
+ * @version v1.4.0
  * @link https://github.com/w3labkr/gh-docs#readme
  * @license ISC
  */
