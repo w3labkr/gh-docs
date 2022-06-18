@@ -45,18 +45,10 @@
   <div id="page" class="site">
 
     <header id="masthead" class="site-header">
-      <div class="site-branding">
-        <a class="site-title" href="index.html">W3LabKr</a>
-      </div>
-      <nav id="page-nav" class="site-nav">
-        <a class="@@navClass.content" href="content.html">Example1</a>
-        <a class="@@navClass.contentSidebar" href="content-sidebar.html">Example2</a>
-        <a class="@@navClass.sidebarContent" href="sidebar-content.html">Example3</a>
-        <a class="@@navClass.sidebarSidebarContent" href="sidebar-sidebar-content.html">Example4</a>
-        <a href="https://github.com/w3labkr/gh-docs" target="_blank">
-          <i class="bi bi-box-arrow-up-right"></i> Github
-        </a>
-      </nav>
+      @@include('template-parts/branding.html')
+      @@include('template-parts/navigation.html', {
+      "templateName": "@@templateName"
+      })
     </header>
 
     <div id="content" class="site-content">

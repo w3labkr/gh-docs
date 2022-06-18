@@ -48,12 +48,7 @@ function clean() {
 
 function htmlTranspile() {
   return src(['src/index.html', 'src/templates/**/*.html'])
-    .pipe(
-      fileinclude({
-        prefix: '@@',
-        basepath: '@file',
-      })
-    )
+    .pipe(fileinclude({ prefix: '@@', basepath: '@file' }))
     .pipe(beautify())
     .pipe(dest('docs'));
 }
@@ -62,7 +57,7 @@ function imageTranspile() {
   return src(['src/assets/images/**/*']).pipe(imagemin()).pipe(dest('docs/assets/images'));
 }
 
-function cssBundle() {
+function sassBundle() {
   const pkg = JSON.parse(fs.readFileSync('./package.json'));
 
   return src('src/assets/sass/**/*.scss')
@@ -75,7 +70,7 @@ function cssBundle() {
     .pipe(dest('docs/assets/css'));
 }
 
-function cssMinify() {
+function sassMinify() {
   const pkg = JSON.parse(fs.readFileSync('./package.json'));
 
   return src('src/assets/sass/**/*.scss')
@@ -120,12 +115,7 @@ function publish() {
     src(['src/data/**/*']).pipe(dest('docs/data')),
     src(['docs/assets/css/**/*', 'docs/assets/js/**/*']).pipe(dest('dist')),
     src('CHANGELOG.md')
-      .pipe(
-        conventionalChangelog({
-          preset: 'conventionalcommits',
-          releaseCount: 0,
-        })
-      )
+      .pipe(conventionalChangelog({ preset: 'conventionalcommits', releaseCount: 0 }))
       .pipe(dest('./'))
   );
 }
@@ -133,13 +123,13 @@ function publish() {
 exports.watch = function () {
   watch('src/**/*.html', htmlTranspile);
   watch('src/assets/images/**/*', imageTranspile);
-  watch('src/assets/sass/**/*.scss', cssMinify);
+  watch('src/assets/sass/**/*.scss', sassMinify);
   watch('src/assets/js/**/*.js', jsMinify);
 };
 
 exports.build = series(
   series(clean, version),
-  parallel(htmlTranspile, imageTranspile, cssBundle, jsBundle),
-  parallel(cssMinify, jsMinify),
+  parallel(htmlTranspile, imageTranspile, sassBundle, jsBundle),
+  parallel(sassMinify, jsMinify),
   publish
 );
