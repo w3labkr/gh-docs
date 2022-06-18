@@ -1,4 +1,4 @@
-## [1.4.1](https://github.com/w3labkr/gh-docs/compare/1.4.0...1.4.1) (2022-06-16)
+## [1.4.2](https://github.com/w3labkr/gh-docs/compare/1.4.1...1.4.2) (2022-06-18)
 
 
 ### Features
